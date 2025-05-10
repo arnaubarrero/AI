@@ -15,7 +15,7 @@ This is a Python-based project designed to help determine location-based informa
 
 ## 🗂️ Project Structure
 
-/
+/  
 ├── README.md # Main project overview (this file)  
 ├── new-start.md # Instructions to restart or reinitialize the project  
 └── software/  
