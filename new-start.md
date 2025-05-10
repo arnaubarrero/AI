@@ -9,3 +9,4 @@ Navigate to the `software` directory:
 ```bash
 cd .\software\
 py -m pip install geopy
+py -m pip install geocoder
