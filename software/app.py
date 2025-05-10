@@ -21,4 +21,4 @@ if (opcio == 1):
         print(x)
     
 elif (opcio == 2):
-    print("You have to wait")
+    insertWord = input("Write the name of the new category: ")
