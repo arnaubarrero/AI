@@ -24,7 +24,19 @@ def index():
             lon2 = float(request.form["lon2"])
             
             distancia_meters, distancia_km = calcular_distancia(lat1, lon1, lat2, lon2)
-            return render_template("index.html", distancia_meters=distancia_meters, distancia_km=distancia_km)
+
+            # Cálculo del tiempo estimado en horas (velocidad constante: 40 km/h)
+            velocidad_kmh = 40
+            tiempo_horas = distancia_km / velocidad_kmh
+            # Convertimos a minutos para mayor claridad
+            tiempo_minutos = tiempo_horas * 60
+
+            return render_template(
+                "index.html",
+                distancia_meters=distancia_meters,
+                distancia_km=distancia_km,
+                tiempo_minutos=tiempo_minutos
+            )
         except ValueError:
             return render_template("index.html", error="Put valid coordinates")
     
