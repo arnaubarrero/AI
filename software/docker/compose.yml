@@ -1,0 +1,22 @@
+  services:
+    db:
+      image: mysql:8.2.0
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: python
+        MYSQL_USER: user
+        MYSQL_PASSWORD: user
+      ports:
+        - 3306:3306
+      volumes:
+        - ./back/mysql_data:/var/lib/mysql
+      command: --host_cache_size=0
+
+    adminer:
+      image: adminer
+      restart: always
+      depends_on:
+        - db
+      ports:
+        - 9090:8080
