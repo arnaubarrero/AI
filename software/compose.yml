@@ -22,3 +22,15 @@ services:
       - db
     ports:
       - 9090:8080
+
+  python:
+    image: python:3.9
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - .:/app  # Asegúrate de que todos los archivos están en la raíz del contenedor
+    working_dir: /app
+    command: bash -c "pip install -r requirements.txt && python app.py"  # Ejecuta Flask
+    ports:
+      - 5000:5000

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body class="bg-black text-green-500 font-mono text-lg">
+        <div class="container mx-auto p-6">
+            <form method="POST" class="mt-4">
+                <label for="lat1" class="block mb-2">Latitud actual:</label>
+                <input type="text" id="lat1" name="lat1" required
+                    class="p-2 rounded-md bg-gray-800 text-green-500 w-full mb-4">
+
+                <label for="lon1" class="block mb-2">Longitud actual:</label>
+                <input type="text" id="lon1" name="lon1" required
+                    class="p-2 rounded-md bg-gray-800 text-green-500 w-full mb-4">
+
+                <label for="lat2" class="block mb-2">Latitud destino:</label>
+                <input type="text" id="lat2" name="lat2" required
+                    class="p-2 rounded-md bg-gray-800 text-green-500 w-full mb-4">
+
+                <label for="lon2" class="block mb-2">Longitud destino:</label>
+                <input type="text" id="lon2" name="lon2" required
+                    class="p-2 rounded-md bg-gray-800 text-green-500 w-full mb-4">
+
+                <input type="submit" value="Calcular Distancia" 
+                    class="p-2 rounded-md bg-green-600 text-black font-bold cursor-pointer hover:bg-green-500 transition-colors duration-300">
+            </form>
+
+            <div class="fixed bottom-10">
+                {% if distancia %}
+                <h3 class="text-xl">{{ distancia }} metros</h3>
+                {% endif %}
+
+                {% if error %}
+                <h3 class="text-red-500 text-xl">{{ error }}</h3>
+                {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
