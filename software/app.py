@@ -9,9 +9,16 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT * FROM categorias")
+print("1. Show data \n2. Insert data")
+opcio = int(input("Choose an option: "))
 
-myresult = mycursor.fetchall()
+if (opcio == 1):
+    mycursor.execute("SELECT * FROM categorias")
 
-for x in myresult:
-  print(x)
+    myresult = mycursor.fetchall()
+
+    for x in myresult:
+        print(x)
+    
+elif (opcio == 2):
+    print("You have to wait")
