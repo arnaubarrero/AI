@@ -20,5 +20,11 @@ if (opcio == 1):
     for x in myresult:
         print(x)
     
-elif (opcio == 2):
+elif (opcio == 2):    
     insertWord = input("Write the name of the new category: ")
+
+    mycursor.execute("INSERT INTO categorias (nombre_categoria) VALUES (%s)", (insertWord,))
+
+    mydb.commit()
+
+    print("Categoría insertada correctamente.")
