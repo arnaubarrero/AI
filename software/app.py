@@ -7,8 +7,9 @@ def calcular_distancia(lat1, lon1, lat2, lon2):
     """Calcula la distancia entre dos puntos geográficos."""
     origen = (lat1, lon1)
     destino = (lat2, lon2)
-    distance = geodesic(origen, destino).meters
-    return distance
+    distance_meters = geodesic(origen, destino).meters
+    distance_km = distance_meters / 1000
+    return distance_meters, distance_km
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -19,8 +20,8 @@ def index():
             lat2 = float(request.form["lat2"])
             lon2 = float(request.form["lon2"])
             
-            distancia = calcular_distancia(lat1, lon1, lat2, lon2)
-            return render_template("index.html", distancia=distancia)
+            distancia_meters, distancia_km = calcular_distancia(lat1, lon1, lat2, lon2)
+            return render_template("index.html", distancia_meters=distancia_meters, distancia_km=distancia_km)
         except ValueError:
             return render_template("index.html", error="Por favor, ingresa valores válidos para las coordenadas.")
     

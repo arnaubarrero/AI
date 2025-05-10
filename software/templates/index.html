@@ -30,12 +30,13 @@
             </form>
 
             <div class="fixed bottom-10">
-                {% if distancia %}
-                <h3 class="text-xl">{{ distancia }} metros</h3>
+                {% if distancia_meters %}
+                    <h3 class="text-xl">{{ distancia_meters }} metros</h3>
+                    <h3 class="text-xl">{{ distancia_km }} kilómetros</h3>
                 {% endif %}
 
                 {% if error %}
-                <h3 class="text-red-500 text-xl">{{ error }}</h3>
+                    <h3 class="text-red-500 text-xl">{{ error }}</h3>
                 {% endif %}
             </div>
         </div>
