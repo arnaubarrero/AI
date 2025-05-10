@@ -22,13 +22,3 @@ services:
       - db
     ports:
       - 9090:8080
-
-  python-script:
-    image: python:3.9
-    restart: "no"
-    depends_on:
-      - db
-    volumes:
-      - ../distance_wf.py:/app/distance_wf.py
-    working_dir: /app
-    command: python distance_wf.py
