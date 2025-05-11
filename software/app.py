@@ -6,25 +6,36 @@ mydb = mysql.connector.connect(
   password="user",
   database="python"
 )
-
 mycursor = mydb.cursor()
 
-print("1. Show data \n2. Insert data")
-opcio = int(input("Choose an option: "))
+def show_menu():
+    print("\n----------\n1. Show data\n2. Insert data\n3. Delete category\n0. Exit\n----------")
 
-if (opcio == 1):
-    mycursor.execute("SELECT * FROM categorias")
+while True:
+    show_menu()
+    opcio = int(input("Choose an option: "))
 
-    myresult = mycursor.fetchall()
+    if opcio == 0:
+        print("Good bye :)")
+        break
 
-    for x in myresult:
-        print(x)
-    
-elif (opcio == 2):    
-    insertWord = input("Write the name of the new category: ")
+    elif opcio == 1:
+        mycursor.execute("SELECT * FROM categorias")
+        myresult = mycursor.fetchall()
+        for x in myresult:
+          print(x)
 
-    mycursor.execute("INSERT INTO categorias (nombre_categoria) VALUES (%s)", (insertWord,))
+    elif opcio == 2:
+        insertWord = input("Write the name of the new category: ")
+        mycursor.execute("INSERT INTO categorias (nombre_categoria) VALUES (%s)", (insertWord,))
+        mydb.commit()
+        print("Categoría insertada correctamente.")
 
-    mydb.commit()
+    elif opcio == 3:
+        DeleteCategory = int(input("Enter the ID of the category you want to delete: "))
+        mycursor.execute("DELETE FROM categorias WHERE id_categoria = %s", (DeleteCategory,))
+        mydb.commit()
+        print("Categoría eliminada correctamente.")
 
-    print("Categoría insertada correctamente.")
+mycursor.close()
+mydb.close()
