@@ -9,5 +9,3 @@ py -m pip install scikit-learn
 py -m pip install mysql-connector-python
 docker compose up --build
 ``` 
-
-app1.py = Predicción de si es un hombre o una mujer segun los datos adjuntados

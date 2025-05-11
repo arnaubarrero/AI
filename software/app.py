@@ -1,4 +1,7 @@
 from sklearn import tree
+from db_con import con_function
+
+con_function()
 
 altura    = int(input("Inserta l'altura: "))
 pes       = int(input("Inserta el pes: "))
@@ -20,4 +23,4 @@ clf = clf.fit(X, y)
 # Fer una predicció segons les dades adjuntades
 prediction = clf.predict([[altura, pes, talla, edat]])
 
-print("Predicción (0=mujer, 1=hombre):", prediction)
+print("Predicció (0=dona, 1=home):", prediction)
