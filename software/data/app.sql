@@ -1,10 +1,10 @@
 create table DadesPersonas(
-    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    altura int,
-    pes int,
-    num_peu int,
-    edat int,
-    genere int
+    id      int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    altura  int NOT NULL,
+    pes     int NOT NULL,
+    num_peu int NOT NULL,
+    edat    int NOT NULL,
+    genere  int NOT NULL
 );
 
 INSERT INTO DadesPersonas (altura, pes, num_peu, edat, genere)
