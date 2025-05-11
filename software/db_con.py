@@ -9,8 +9,14 @@ def con_function():
     )
     
     mycursor = mydb.cursor()
-    mycursor.execute("SELECT * FROM DadesPersonas")
+
+    mycursor.execute("SELECT altura, pes, num_peu, edat, genere FROM DadesPersonas")
+
     myresult = mycursor.fetchall()
-    
-    for x in myresult:
-        print (x)
+
+    # X = Extreure totes les dades excepte el genere (totes les columnes menys l'ultima)
+    X = [list(row[:-1]) for row in myresult]
+    # Y = Extreure els generes de cada (l'ultima columna)
+    y = [row[-1] for row in myresult]
+
+    return X, y
