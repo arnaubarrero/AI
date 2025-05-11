@@ -8,4 +8,9 @@ def con_function():
         database="python"
     )
     
-    print("Conexió amb la base de dades establerta correctament")
+    mycursor = mydb.cursor()
+    mycursor.execute("SELECT * FROM DadesPersonas")
+    myresult = mycursor.fetchall()
+    
+    for x in myresult:
+        print (x)
